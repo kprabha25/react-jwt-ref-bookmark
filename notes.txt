@@ -1,0 +1,86 @@
+1.React Table example: CRUD App | react-table 7
+https://www.bezkoder.com/react-table-example-hooks-crud/
+
+2.Node.js, Express & MongoDb: Build a CRUD Rest Api example
+https://www.bezkoder.com/node-express-mongodb-crud-rest-api/
+
+3.Server side Pagination in Node.js, MongoDB | Mongoose Paginate v2
+https://www.bezkoder.com/node-js-mongodb-pagination/
+
+
+
+5.React + Redux: Refresh Token with Axios and JWT example
+https://www.bezkoder.com/redux-refresh-token-axios/
+
+React + Redux + Node.js Express: User Authentication with JWT example
+https://www.bezkoder.com/react-express-authentication-jwt/
+
+React Hooks: JWT Authentication (without Redux) example
+https://www.bezkoder.com/react-hooks-jwt-auth/
+
+How to upload/store images in MongoDB using Node.js, Express & Multer
+https://www.bezkoder.com/node-js-upload-store-images-mongodb/
+
+
+====
+4.React Refresh Token with JWT and Axios Interceptors
+https://www.bezkoder.com/react-refresh-token/
+The source code for this React Application can be found at Github:
+– React (Components)
+– React (Hooks) - Using
+
+
+JWT implementation with Refresh Token in Node.js example
+https://www.bezkoder.com/jwt-refresh-token-node-js-mongodb/
+
+=====
+Node.js + MongoDB: User Authentication & Authorization with JWT
+https://bezkoder.com/node-js-mongodb-auth-jwt/
+
+Login Page with React.js, MongoDB: MERN JWT Authentication example
+https://www.bezkoder.com/react-node-mongodb-auth/
+
+Node.js + MongoDB: User Authentication & Authorization with JWT and HttpOnly Cookies
+https://www.bezkoder.com/node-js-express-login-mongodb/
+
+React JWT Authentication (without Redux) example
+https://www.bezkoder.com/react-jwt-auth/
+
+	Continue To Read : 
+	You should continue to check if Token is expired and logout:
+	React – How to Logout when JWT Token is expired
+	https://www.bezkoder.com/react-logout-token-expired/
+
+	Or add refresh token:
+	React Refresh Token with JWT and Axios Interceptors
+	https://www.bezkoder.com/react-refresh-token/
+
+	If you want to use React Hooks for this example, you can find the implementation at:
+	React Hooks: JWT Authentication (without Redux) example
+	https://bezkoder.com/react-hooks-jwt-auth/
+
+	Or using Redux for state management:
+	React Redux: JWT Authentication & Authorization example
+	https://bezkoder.com/react-redux-jwt-auth/
+
+React Form Validation example with Formik and Yup
+https://www.bezkoder.com/react-form-validation-example-formik/
+
+React – How to Logout when JWT Token is expired
+https://www.bezkoder.com/react-logout-token-expired/
+
+Using HttpOnly Cookie for storing JWT:
+React.js Login & Registration example – JWT & HttpOnly Cookie
+https://www.bezkoder.com/react-login-example-jwt-hooks/
+
+React Table Pagination (Server side) with Search | react-table v7
+https://www.bezkoder.com/react-table-pagination-server-side/
+
+Server side Pagination in Node.js, MongoDB | Mongoose Paginate v2
+https://www.bezkoder.com/node-js-mongodb-pagination/
+
+Login Page with React.js, MongoDB: MERN JWT Authentication example
+https://www.bezkoder.com/react-node-mongodb-auth/
+
+Absolute Import in React | create-react-app
+https://www.bezkoder.com/absolute-import-react/

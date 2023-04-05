@@ -19,6 +19,7 @@ import AddTutorial from "./components/AddTutorial";
 import Tutorial from "./components/Tutorial";
 
 import EventBus from "./common/EventBus";
+import AuthVerify from "./common/auth-verify";
 
 class App extends Component {
   constructor(props) {
@@ -53,6 +54,7 @@ class App extends Component {
   }
 
   logOut() {
+    console.log('Activity logout called')
     AuthService.logout();
     this.setState({
       showModeratorBoard: false,
@@ -83,11 +85,13 @@ class App extends Component {
             </Link>
             </li>
 
-            <li className="nav-item">
-            <Link to={"/add"} className="nav-link">
-              Add
-            </Link>
-            </li>
+            {showAdminBoard && currentUser && (
+              <li className="nav-item">
+              <Link to={"/add"} className="nav-link">
+                Add
+              </Link>
+              </li>
+            )}            
 
             {showModeratorBoard && (
               <li className="nav-item">
@@ -97,7 +101,7 @@ class App extends Component {
               </li>
             )}
 
-            {showAdminBoard && (
+            {showAdminBoard && currentUser && (
               <li className="nav-item">
                 <Link to={"/admin"} className="nav-link">
                   Admin Board
@@ -158,6 +162,7 @@ class App extends Component {
             <Route path="/admin" component={BoardAdmin} />
           </Switch>
         </div>
+        <AuthVerify logOut={this.logOut}/>
       </div>
     );
   }

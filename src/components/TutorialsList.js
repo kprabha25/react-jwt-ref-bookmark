@@ -1,32 +1,78 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
+import Pagination from "@material-ui/lab/Pagination";
 import TutorialService from "../services/tutorial.service";
 import { useTable } from "react-table";
+import AuthService from "../services/auth.service";
 
 const TutorialsList = (props) => {
   const [tutorials, setTutorials] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
   const tutorialsRef = useRef();
 
+  const [page, setPage] = useState(1);
+  const [count, setCount] = useState(0);
+  const [pageSize, setPageSize] = useState(3);
+  const [currentUser, setCurrentUser] = useState("");
+  
+
+  const pageSizes = [3, 6, 9];
+
   tutorialsRef.current = tutorials;
 
-  useEffect(() => {
-    retrieveTutorials();
-  }, []);
+  
 
   const onChangeSearchTitle = (e) => {
     const searchTitle = e.target.value;
     setSearchTitle(searchTitle);
   };
 
+  const getRequestParams = (searchTitle, page, pageSize) => {
+    let params = {};
+
+    if (searchTitle) {
+      params["title"] = searchTitle;
+    }
+
+    if (page) {
+      params["page"] = page - 1;
+    }
+
+    if (pageSize) {
+      params["size"] = pageSize;
+    }
+
+    return params;
+  };
+
   const retrieveTutorials = () => {
-    TutorialService.getAllTutorials()
+    const params = getRequestParams(searchTitle, page, pageSize);
+
+    const user = AuthService.getCurrentUser();
+
+    if (user) {
+      setCurrentUser(user);
+    }
+
+    TutorialService.getAllTutorials(params)
       .then((response) => {
-        setTutorials(response.data);
+        //setTutorials(response.data);
+        const { tutorials, totalPages } = response.data;
+
+        setTutorials(tutorials);
+        setCount(totalPages);
+
+        console.log(response.data);
       })
       .catch((e) => {
         console.log(e);
       });
   };
+
+  // useEffect(() => {
+  //   retrieveTutorials();
+  // }, []);
+
+  useEffect(retrieveTutorials, [page, pageSize]);
 
   const refreshList = () => {
     retrieveTutorials();
@@ -44,13 +90,17 @@ const TutorialsList = (props) => {
   };
 
   const findByTitle = () => {
-    TutorialService.findByTitle(searchTitle)
-      .then((response) => {
-        setTutorials(response.data);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+    // TutorialService.findByTitle(searchTitle)
+    //   .then((response) => {
+    //     //setTutorials(response.data);
+    //     setPage(1);
+    //     retrieveTutorials();
+    //   })
+    //   .catch((e) => {
+    //     console.log(e);
+    //   });
+    setPage(1);
+    retrieveTutorials();
   };
 
   const openTutorial = (rowIndex) => {
@@ -76,6 +126,15 @@ const TutorialsList = (props) => {
       });
   };
 
+  const handlePageChange = (event, value) => {
+    setPage(value);
+  };
+
+  const handlePageSizeChange = (event) => {
+    setPageSize(event.target.value);
+    setPage(1);
+  };
+
   const columns = useMemo(
     () => [
       {
@@ -98,21 +157,29 @@ const TutorialsList = (props) => {
         accessor: "actions",
         Cell: (props) => {
           const rowIdx = props.row.id;
-          return (
-            <div>
-              <span onClick={() => openTutorial(rowIdx)}>
-                <i className="far fa-edit action mr-2"></i>
-              </span>
-
-              <span onClick={() => deleteTutorial(rowIdx)}>
-                <i className="fas fa-trash action"></i>
-              </span>
-            </div>
-          );
+          if(currentUser){
+            return (              
+              <div>
+                  <span onClick={() => openTutorial(rowIdx)}>
+                  <i className="far fa-edit action mr-2"></i>
+                </span>
+  
+                <span onClick={() => deleteTutorial(rowIdx)}>
+                  <i className="fas fa-trash action"></i>
+                </span>
+              </div>              
+            );
+          } else {
+            return (              
+              <div>
+                  
+              </div>              
+            );
+          }
         },
       },
     ],
-    []
+    [currentUser]
   );
 
   const {
@@ -148,7 +215,30 @@ const TutorialsList = (props) => {
           </div>
         </div>
       </div>
+
       <div className="col-md-12 list">
+        <div className="mt-3">
+          {"Items per Page: "}
+          <select onChange={handlePageSizeChange} value={pageSize}>
+            {pageSizes.map((size) => (
+              <option key={size} value={size}>
+                {size}
+              </option>
+            ))}
+          </select>
+
+          <Pagination
+            className="my-3"
+            count={count}
+            page={page}
+            siblingCount={1}
+            boundaryCount={1}
+            variant="outlined"
+            shape="rounded"
+            onChange={handlePageChange}
+          />
+        </div>
+
         <table
           className="table table-striped table-bordered"
           {...getTableProps()}
@@ -180,11 +270,49 @@ const TutorialsList = (props) => {
           </tbody>
         </table>
       </div>
+      
+      {/* <div className="col-md-12 list">
+        <table
+          className="table table-striped table-bordered"
+          {...getTableProps()}
+        >
+          <thead>
+            {headerGroups.map((headerGroup) => (
+              <tr {...headerGroup.getHeaderGroupProps()}>
+                {headerGroup.headers.map((column) => (
+                  <th {...column.getHeaderProps()}>
+                    {column.render("Header")}
+                  </th>
+                ))}
+              </tr>
+            ))}
+          </thead>
+          <tbody {...getTableBodyProps()}>
+            {rows.map((row, i) => {
+              prepareRow(row);
+              return (
+                <tr {...row.getRowProps()}>
+                  {row.cells.map((cell) => {
+                    return (
+                      <td {...cell.getCellProps()}>{cell.render("Cell")}</td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div> */}
 
       <div className="col-md-8">
-        <button className="btn btn-sm btn-danger" onClick={removeAllTutorials}>
-          Remove All
-        </button>
+        {
+          currentUser ? (
+            <button className="btn btn-sm btn-danger" onClick={removeAllTutorials}>
+              Remove All
+            </button>
+          ) : (<div></div>)
+        }
+
       </div>
     </div>
   );

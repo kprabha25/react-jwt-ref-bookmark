@@ -1,8 +1,8 @@
 import api from './api';
 
 class TutorialService {
-    getAllTutorials() {
-        return api.get("/tutorials");
+    getAllTutorials(params) {
+        return api.get("/tutorials", { params });
     }
     getTutorialsById(id) {
         return api.get(`/tutorials/${id}`);

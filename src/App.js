@@ -101,7 +101,7 @@ class App extends Component {
               </li>
             )}
 
-            {showAdminBoard && currentUser && (
+            {/* {showAdminBoard && currentUser && (
               <li className="nav-item">
                 <Link to={"/admin"} className="nav-link">
                   Admin Board
@@ -115,7 +115,7 @@ class App extends Component {
                   User
                 </Link>
               </li>
-            )}
+            )} */}
           </div>
 
           {currentUser ? (

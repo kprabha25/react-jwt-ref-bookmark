@@ -157,7 +157,7 @@ const TutorialsList = (props) => {
         accessor: "actions",
         Cell: (props) => {
           const rowIdx = props.row.id;
-          if(currentUser){
+          if(currentUser.username == "prabakaran"){
             return (              
               <div>
                   <span onClick={() => openTutorial(rowIdx)}>
@@ -307,7 +307,7 @@ const TutorialsList = (props) => {
       <div className="col-md-8">
         {
           currentUser ? (
-            <button className="btn btn-sm btn-danger" onClick={removeAllTutorials}>
+            <button className="btn btn-sm btn-danger" disabled onClick={removeAllTutorials}>
               Remove All
             </button>
           ) : (<div></div>)

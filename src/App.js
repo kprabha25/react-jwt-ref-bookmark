@@ -34,6 +34,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    console.log('process.env.REACT_APP_BACKEND_URL - App :  ', process.env.REACT_APP_BACKEND_URL)
     const user = AuthService.getCurrentUser();
 
     if (user) {

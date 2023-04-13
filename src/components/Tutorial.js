@@ -5,6 +5,11 @@ const Tutorial = props => {
   const initialTutorialState = {
     id: null,
     title: "",
+    category: "",
+    url: "",
+    notes: "",
+    domain: "",
+    status: "",
     description: "",
     published: false
   };
@@ -35,6 +40,11 @@ const Tutorial = props => {
     var data = {
       id: currentTutorial.id,
       title: currentTutorial.title,
+      category: currentTutorial.category,
+      url: currentTutorial.url,
+      notes: currentTutorial.notes,
+      domain: currentTutorial.domain,
+      status: currentTutorial.status,
       description: currentTutorial.description,
       published: status
     };
@@ -86,6 +96,61 @@ const Tutorial = props => {
                 id="title"
                 name="title"
                 value={currentTutorial.title}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="title">Category</label>
+              <input
+                type="text"
+                className="form-control"
+                id="category"
+                name="category"
+                value={currentTutorial.category}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="title">Url</label>
+              <input
+                type="text"
+                className="form-control"
+                id="url"
+                name="url"
+                value={currentTutorial.url}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="title">Notes</label>
+              <input
+                type="text"
+                className="form-control"
+                id="notes"
+                name="notes"
+                value={currentTutorial.notes}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="title">Domain</label>
+              <input
+                type="text"
+                className="form-control"
+                id="domain"
+                name="domain"
+                value={currentTutorial.domain}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="title">Status</label>
+              <input
+                type="text"
+                className="form-control"
+                id="status"
+                name="status"
+                value={currentTutorial.status}
                 onChange={handleInputChange}
               />
             </div>

@@ -15,7 +15,7 @@ const TutorialsList = (props) => {
   const [currentUser, setCurrentUser] = useState("");
   
 
-  const pageSizes = [3, 6, 9];
+  const pageSizes = [10, 50, 100, 200, 500];
 
   tutorialsRef.current = tutorials;
 
@@ -140,6 +140,26 @@ const TutorialsList = (props) => {
       {
         Header: "Title",
         accessor: "title",
+      },
+      {
+        Header: "Category",
+        accessor: "category",
+      },
+      {
+        Header: "Url",
+        accessor: "url",
+      },
+      {
+        Header: "Notes",
+        accessor: "notes",
+      },
+      {
+        Header: "Domain",
+        accessor: "domain",
+      },
+      {
+        Header: "State",
+        accessor: "status",
       },
       {
         Header: "Description",

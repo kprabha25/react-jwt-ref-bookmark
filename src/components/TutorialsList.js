@@ -11,7 +11,7 @@ const TutorialsList = (props) => {
 
   const [page, setPage] = useState(1);
   const [count, setCount] = useState(0);
-  const [pageSize, setPageSize] = useState(3);
+  const [pageSize, setPageSize] = useState(10);
   const [currentUser, setCurrentUser] = useState("");
   
 
@@ -158,8 +158,8 @@ const TutorialsList = (props) => {
         accessor: "domain",
       },
       {
-        Header: "State",
-        accessor: "status",
+        Header: "CreatedAt",
+        accessor: "createdAt",
       },
       {
         Header: "Description",

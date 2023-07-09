@@ -2000,9 +2000,9 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^16.8.6 || ^17.0.0":
-  "integrity" "sha512-sHxzVxeanvQyQ1lr8NSHaj0kDzcNiGpILEVt69g9S31/7PfMvNCKLKcsHw4lYKjs3cGNJjXSP4mYzX43QlnjNA=="
-  "resolved" "https://registry.npmjs.org/@types/react/-/react-18.0.33.tgz"
-  "version" "18.0.33"
+  "integrity" "sha512-eANCyz9DG8p/Vdhr0ZKST8JV12PhH2ACCDYlFw6DIO+D+ca+uP4jtEDEpVqXZrh/uZdXQGwk7whJa3ah5DtyLw=="
+  "resolved" "https://registry.npmjs.org/@types/react/-/react-17.0.62.tgz"
+  "version" "17.0.62"
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"

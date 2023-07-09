@@ -100,7 +100,7 @@ const Tutorial = props => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="title">Category</label>
+              <label htmlFor="category">Category</label>
               <input
                 type="text"
                 className="form-control"
@@ -111,7 +111,7 @@ const Tutorial = props => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="title">Url</label>
+              <label htmlFor="url">Url</label>
               <input
                 type="text"
                 className="form-control"
@@ -122,7 +122,7 @@ const Tutorial = props => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="title">Notes</label>
+              <label htmlFor="notes">Notes</label>
               <input
                 type="text"
                 className="form-control"
@@ -133,7 +133,7 @@ const Tutorial = props => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="title">Domain</label>
+              <label htmlFor="domain">Domain</label>
               <input
                 type="text"
                 className="form-control"
@@ -144,7 +144,7 @@ const Tutorial = props => {
               />
             </div>
             <div className="form-group">
-              <label htmlFor="title">Status</label>
+              <label htmlFor="status">Status</label>
               <input
                 type="text"
                 className="form-control"
